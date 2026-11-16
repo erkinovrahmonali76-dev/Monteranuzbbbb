@@ -2,8 +2,13 @@ from datetime import datetime
 from sqlalchemy import Column, String, Integer, BigInteger, Boolean, JSON, DateTime, Text
 from sqlalchemy.orm import DeclarativeBase
 
-class Base(DeclarativeBase): pass
+
+class Base(DeclarativeBase):
+    pass
+
+
 now = datetime.utcnow
+
 
 class User(Base):
     __tablename__ = "users"
@@ -11,6 +16,7 @@ class User(Base):
     username = Column(String(64)); first_name = Column(String(100)); last_name = Column(String(100))
     blocked = Column(Boolean, default=False)
     created_at = Column(DateTime, default=now)
+
 
 class Product(Base):
     __tablename__ = "products"
@@ -24,9 +30,11 @@ class Product(Base):
     sold = Column(Integer, default=0); active = Column(Boolean, default=True, index=True)
     created_at = Column(DateTime, default=now)
 
+
 class Favorite(Base):
     __tablename__ = "favorites"
     user_id = Column(BigInteger, primary_key=True); product_id = Column(Integer, primary_key=True)
+
 
 class Order(Base):
     __tablename__ = "orders"
@@ -40,12 +48,22 @@ class Order(Base):
     status = Column(String(12), default="new", index=True)
     created_at = Column(DateTime, default=now)
 
+
 class Promo(Base):
     __tablename__ = "promo_codes"
     code = Column(String(30), primary_key=True)
     percent = Column(Integer, default=0); fixed = Column(Integer, default=0)
     expires = Column(DateTime); limit = Column(Integer); used = Column(Integer, default=0)
     active = Column(Boolean, default=True)
+
+
+class Review(Base):
+    __tablename__ = "reviews"
+    id = Column(Integer, primary_key=True)
+    product_id = Column(Integer, index=True); user_id = Column(BigInteger, index=True)
+    name = Column(String(100)); rating = Column(Integer, default=5); text = Column(String(500), default="")
+    created_at = Column(DateTime, default=now)
+
 
 class Setting(Base):
     __tablename__ = "settings"
