@@ -2,56 +2,64 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>MONTERA.UZ</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#fafafa;--fg:#0d0d0d;--mut:#7b7b7b;--line:#e2e2e2;--card:#ececec}
-:root[data-t=dark]{--bg:#0d0d0d;--fg:#f2f2f2;--mut:#8b8b8b;--line:#262626;--card:#1a1a1a}
-*{box-sizing:border-box;margin:0}
-body{font:14px/1.45 Manrope,sans-serif;background:var(--bg);color:var(--fg);padding-bottom:calc(68px + env(safe-area-inset-bottom))}
+:root{--bg:#f2f4f8;--sf:#fff;--fg:#121a2f;--mut:#6b7488;--line:#e3e7ef;--card:#e6eaf2;--ac:#3355ff;--ac2:#e9eeff;--red:#e5484d;--sh:0 6px 20px rgba(18,26,47,.08)}
+:root[data-t=dark]{--bg:#0d1322;--sf:#172038;--fg:#eef1f8;--mut:#98a2bb;--line:#26314d;--card:#1d2742;--ac:#6f87ff;--ac2:#232f55;--red:#ff6b70;--sh:0 6px 20px rgba(0,0,0,.35)}
+*{box-sizing:border-box;margin:0;-webkit-tap-highlight-color:transparent}
+body{font:15px/1.5 'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--fg);padding-bottom:calc(96px + env(safe-area-inset-bottom))}
 button,input,select,textarea{font:inherit;color:inherit}
-header{padding:calc(12px + env(safe-area-inset-top)) 16px 8px;position:sticky;top:0;background:var(--bg);z-index:5}
-.logo{font:700 24px 'Bodoni Moda',serif;letter-spacing:.05em;margin-bottom:10px}
-input,select,textarea{width:100%;padding:12px;border:1px solid var(--line);background:transparent;border-radius:0;margin-top:4px}
-label{display:block;margin-top:12px;color:var(--mut)}
-#sg .sgi{padding:10px 12px;border:1px solid var(--line);border-top:0;background:var(--bg)}
-.btn{display:block;width:100%;padding:15px;background:var(--fg);color:var(--bg);border:0;font-weight:700;letter-spacing:.08em;margin-top:14px}
-.btn.ghost{background:transparent;color:var(--fg);border:1px solid var(--fg)}
-.btn:disabled{opacity:.4}
-.banner{margin:8px 16px;padding:40px 22px 26px;background:#0d0d0d;color:#f2f2f2}
-.banner h1{font:500 44px/.98 'Bodoni Moda',serif;letter-spacing:.01em}
-.banner p{margin:14px 0 4px;color:#a8a8a8}
-.banner .btn{background:#f2f2f2;color:#0d0d0d;width:auto;padding:12px 26px}
+header{padding:calc(12px + env(safe-area-inset-top)) 16px 10px;position:sticky;top:0;background:var(--bg);z-index:5}
+.logo{font:800 22px Sora,sans-serif;letter-spacing:.02em;margin-bottom:10px}.logo span{color:var(--ac)}
+input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);background:var(--sf);border-radius:14px;margin-top:6px;font-size:16px}
+label{display:block;margin-top:14px;color:var(--mut);font-weight:600;font-size:13px}
+#sg .sgi{padding:12px 14px;background:var(--sf);border-bottom:1px solid var(--line);font-weight:500}
+#sg{border-radius:14px;overflow:hidden;box-shadow:var(--sh);margin-top:6px}
+.btn{display:block;width:100%;padding:16px;background:var(--ac);color:#fff;border:0;border-radius:16px;font-weight:700;font-size:15px;letter-spacing:.03em;margin-top:16px}
+.btn.ghost{background:var(--ac2);color:var(--ac)}
+.btn:disabled{opacity:.45}
+.banner{position:relative;overflow:hidden;margin:6px 16px 4px;padding:34px 24px 28px;background:#101a3a;color:#fff;border-radius:26px}
+.banner:before{content:"";position:absolute;width:230px;height:230px;border-radius:50%;background:#3355ff;right:-70px;top:-70px}
+.banner:after{content:"";position:absolute;width:110px;height:110px;border-radius:50%;background:#f2c78b;right:46px;bottom:-48px}
+.banner>*{position:relative;z-index:1}
+.banner h1{font:800 38px/1.02 Sora,sans-serif;letter-spacing:-.02em}
+.banner p{margin:12px 0 4px;color:#c9d2f2;font-weight:500}
+.banner .btn{background:#fff;color:#101a3a;width:auto;padding:13px 28px;margin-top:14px}
 .chips{display:flex;gap:8px;overflow-x:auto;padding:12px 16px;scrollbar-width:none}
-.chip{flex:none;padding:8px 14px;border:1px solid var(--line);background:none;border-radius:99px}
-.chip.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-.chip:disabled{opacity:.3;text-decoration:line-through}
-h2{font:500 22px 'Bodoni Moda',serif;padding:20px 16px 10px}
-h3{font:500 22px 'Bodoni Moda',serif;margin-bottom:6px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 10px;padding:0 16px}
+.chip{flex:none;padding:9px 16px;border:1px solid var(--line);background:var(--sf);border-radius:99px;font-weight:600}
+.chip.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+.chip:disabled{opacity:.35;text-decoration:line-through}
+h2{font:700 20px Sora,sans-serif;padding:22px 16px 10px;letter-spacing:-.01em}
+h3{font:700 22px Sora,sans-serif;margin-bottom:6px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px 12px;padding:0 16px}
 .card{cursor:pointer}
-.ph{aspect-ratio:3/4;background:var(--card) center/cover;display:grid;place-items:center;color:var(--mut);font:500 40px 'Bodoni Moda',serif;position:relative}
-.heart{position:absolute;right:6px;top:6px;border:0;background:var(--bg);width:32px;height:32px;border-radius:50%;font-size:16px}
-.badge{position:absolute;left:0;top:8px;background:var(--fg);color:var(--bg);padding:3px 8px;font:700 12px Manrope}
-.old{color:var(--mut);text-decoration:line-through;margin-left:6px;font-size:12px}
+.ph{aspect-ratio:3/4;background:var(--card) center/cover;display:grid;place-items:center;color:var(--mut);font:700 40px Sora,sans-serif;position:relative;border-radius:18px}
+.card>div:nth-child(2){padding-top:9px;font-weight:600;line-height:1.3}
+.card>div:nth-child(3){font-weight:700;margin-top:2px}
+.heart{position:absolute;right:8px;top:8px;border:0;background:var(--sf);width:34px;height:34px;border-radius:50%;font-size:17px;box-shadow:var(--sh);color:var(--mut)}
+.heart.on{color:var(--red)}
+.badge{position:absolute;left:8px;top:8px;background:var(--red);color:#fff;padding:3px 9px;border-radius:99px;font:700 12px 'Plus Jakarta Sans'}
+.old{color:var(--mut);text-decoration:line-through;margin-left:6px;font-size:12px;font-weight:500}
 .mut{color:var(--mut)} .pad{padding:16px} .grow{flex:1}
-.row{display:flex;gap:8px;padding:0 16px 14px;align-items:center}.row select{margin:0}
-.empty{padding:40px 16px;text-align:center;color:var(--mut)}
-nav{position:fixed;bottom:0;left:0;right:0;display:flex;background:var(--bg);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);z-index:10}
-nav button{flex:1;padding:16px 0;border:0;background:none;font-size:12px;color:var(--mut)}
-nav button.on{color:var(--fg);font-weight:700}
+.row{display:flex;gap:8px;padding:0 16px 14px;align-items:center}.row select{margin:0;padding:11px 12px;border-radius:99px}
+.empty{padding:48px 16px;text-align:center;color:var(--mut)}
+nav{position:fixed;left:12px;right:12px;bottom:calc(10px + env(safe-area-inset-bottom));display:flex;gap:2px;background:var(--sf);border-radius:22px;box-shadow:0 10px 30px rgba(18,26,47,.18);padding:6px;z-index:10}
+nav button{flex:1;padding:12px 0;border:0;background:none;font-size:12px;font-weight:600;color:var(--mut);border-radius:16px}
+nav button.on{background:var(--ac);color:#fff}
 .sheet{position:fixed;inset:0;background:var(--bg);overflow:auto;z-index:20;padding-bottom:40px}
-.back{border:0;background:none;padding:calc(14px + env(safe-area-inset-top)) 16px 10px;font-weight:700}
-.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.gal .ph{flex:none;width:100%;scroll-snap-align:start}
-.price{font-size:18px;margin:4px 0 10px}
-.line{display:flex;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);align-items:center}
-.th{width:64px;height:84px;background:var(--card) center/cover;flex:none}
-.qty{display:flex;align-items:center;gap:12px}.qty button{width:32px;height:32px;border:1px solid var(--line);background:none}
-.sum{display:flex;justify-content:space-between;padding:5px 0}
-.ord{padding:14px 16px;border-bottom:1px solid var(--line)}.ord select{margin-top:8px}
-.stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:12px 0}
-.stats div{border:1px solid var(--line);padding:12px;display:flex;flex-direction:column}.stats b{font-size:18px}
+.back{border:0;background:none;padding:calc(14px + env(safe-area-inset-top)) 16px 12px;font-weight:700;color:var(--ac)}
+.gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.gal .ph{flex:none;width:100%;scroll-snap-align:start;border-radius:0}
+.sheet .pad{background:var(--sf);border-radius:26px 26px 0 0;margin-top:-22px;position:relative;padding:22px 18px 30px}
+.price{font:700 22px Sora,sans-serif;margin:4px 0 12px}.price .old{font:500 14px 'Plus Jakarta Sans'}
+.line{display:flex;gap:12px;padding:12px;margin:10px 16px 0;background:var(--sf);border-radius:18px;box-shadow:var(--sh);align-items:center}
+.th{width:68px;height:88px;background:var(--card) center/cover;flex:none;border-radius:12px}
+.qty{display:flex;align-items:center;gap:12px;font-weight:700}.qty button{width:34px;height:34px;border:0;background:var(--ac2);color:var(--ac);border-radius:50%;font-size:18px;font-weight:700}
+.sum{display:flex;justify-content:space-between;padding:6px 0}
+.ord{padding:14px;margin:10px 16px 0;background:var(--sf);border-radius:18px;box-shadow:var(--sh)}.ord select{margin-top:10px}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.stats div{background:var(--ac2);border-radius:16px;padding:14px;display:flex;flex-direction:column}.stats b{font:700 18px Sora,sans-serif}
 .promo{display:flex;gap:8px;align-items:flex-end}.promo .btn{margin:0}
-#toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:12px 18px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:30;max-width:88%;text-align:center}
+#toast{position:fixed;left:50%;bottom:104px;transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:13px 20px;border-radius:14px;font-weight:600;opacity:0;pointer-events:none;transition:opacity .2s;z-index:30;max-width:88%;text-align:center}
 #toast.show{opacity:1}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body>
@@ -74,7 +82,7 @@ const save=()=>localStorage.mc=JSON.stringify(S.cart);
 async function api(p,o={}){const r=await fetch('/api'+p,{...o,headers:{'Content-Type':'application/json','X-Init-Data':tg?.initData||''},body:o.body&&JSON.stringify(o.body)});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(typeof j.detail==='string'?j.detail:'Xatolik. Ma’lumotlarni tekshirib, qayta urinib ko‘ring');return j}
 const A=(p,o)=>api('/admin'+p,o);
 function toast(m){const t=$('#toast');t.textContent=m;t.className='show';clearTimeout(toast.t);toast.t=setTimeout(()=>t.className='',2600)}
-const card=p=>`<div class=card data-a=open data-id=${p.id}><div class=ph style="${p.images[0]?`background-image:url(${img(p.images[0])})`:''}">${p.images[0]?'':H(p.name[0])}${pct(p)?`<span class=badge>-${pct(p)}%</span>`:''}${avail(p)?'':'<span class=badge style="top:auto;bottom:8px;background:var(--mut)">Tugagan</span>'}<button class=heart data-a=fav data-id=${p.id}>${S.fav.has(p.id)?'♥':'♡'}</button></div><div style="padding-top:8px;font-weight:500">${H(p.name)}</div><div>${money(p.price)}${p.old_price>p.price?`<span class=old>${money(p.old_price)}</span>`:''}</div></div>`;
+const card=p=>`<div class=card data-a=open data-id=${p.id}><div class=ph style="${p.images[0]?`background-image:url(${img(p.images[0])})`:''}">${p.images[0]?'':H(p.name[0])}${pct(p)?`<span class=badge>-${pct(p)}%</span>`:''}${avail(p)?'':'<span class=badge style="top:auto;bottom:8px;background:#6b7488;color:#fff">Tugagan</span>'}<button class="heart${S.fav.has(p.id)?' on':''}" data-a=fav data-id=${p.id}>${S.fav.has(p.id)?'♥':'♡'}</button></div><div style="padding-top:8px;font-weight:500">${H(p.name)}</div><div>${money(p.price)}${p.old_price>p.price?`<span class=old>${money(p.old_price)}</span>`:''}</div></div>`;
 const grid=l=>l.length?`<div class=grid>${l.map(card).join('')}</div>`:'<p class=empty>Hech narsa topilmadi</p>';
 const chips=()=>`<div class=chips>${['',...S.cfg.categories].map(c=>`<button class="chip ${S.cat===c&&S.tab==='shop'?'on':''}" data-a=cat data-v="${H(c)}">${c||'Hammasi'}</button>`).join('')}</div>`;
 const home=()=>{const by=f=>[...S.P].sort(f).slice(0,6),sale=S.P.filter(pct).slice(0,6);return `<div class=banner><h1>NEW<br>COLLECTION</h1><p>Erkaklar uchun zamonaviy uslub</p><button class=btn data-a=shop>KO‘RISH</button></div>${chips()}<h2>Trending</h2>${grid(by((a,b)=>b.sold-a.sold))}<h2>Yangi kelganlar</h2>${grid(by((a,b)=>b.id-a.id))}${sale.length?`<h2>Chegirmalar</h2>${grid(sale)}`:''}`};
@@ -131,7 +139,7 @@ document.onchange=async e=>{const el=e.target,a=el.dataset.a;try{
 if(a==='sort'){S.sort=el.value;page()}else if(a==='size'){S.size=el.value;page()}
 else if(a==='ost'){await A(`/orders/${el.dataset.id}/status`,{method:'POST',body:{status:el.value}});toast('Status yangilandi, mijozga xabar ketdi')}}catch(x){toast(x.message)}};
 document.oninput=e=>{const f=e.target.dataset.f;if(f){S.f[f]=e.target.value;if(f==='region'){S.promo=S.promo;$('#sum').innerHTML=sum()}}};
-$('#hd').innerHTML='<div class=logo>MONTERA.UZ</div><input id=q placeholder="Qidirish: sviter, hoodie…" autocomplete=off><div id=sg></div>';
+$('#hd').innerHTML='<div class=logo>MONTERA<span>.UZ</span></div><input id=q placeholder="Qidirish: sviter, hoodie…" autocomplete=off><div id=sg></div>';
 $('#q').oninput=e=>{S.q=e.target.value.trim().toLowerCase();const m=S.q?[...new Set(S.P.map(p=>p.name).filter(n=>n.toLowerCase().includes(S.q)))].slice(0,5):[];$('#sg').innerHTML=m.map(n=>`<div class=sgi data-a=sg data-v="${H(n)}">${H(n)}</div>`).join('');S.tab='shop';page()};
 $('#app').innerHTML='<p class=empty>Yuklanmoqda…</p>';
 loadAll().then(page).catch(x=>$('#app').innerHTML=`<p class=empty>${H(x.message)}</p>`);
